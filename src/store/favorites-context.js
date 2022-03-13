@@ -19,9 +19,7 @@ export function FavoritesContextProvider(props) {
 
   function removeFavoriteHandler(meetupID) {
     setUserFavorites((prevUserFavorites) => {
-      return prevUserFavorites.filter((meetup) => {
-        meetup.id !== meetupID;
-      });
+      return prevUserFavorites.filter((meetup) => meetup.id !== meetupID);
     });
   }
 
