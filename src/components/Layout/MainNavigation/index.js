@@ -25,13 +25,17 @@ function MainNavigation() {
       <nav>
         <ul className={menuIsOpen ? classes.active : ""}>
           <li>
-            <Link to="/">All Meetups</Link>
+            <Link to="/" onClick={closeNavbarHandler}>
+              All Meetups
+            </Link>
           </li>
           <li>
-            <Link to="/new-meetup">New Meetup</Link>
+            <Link to="/new-meetup" onClick={closeNavbarHandler}>
+              New Meetup
+            </Link>
           </li>
           <li>
-            <Link to="/favorites">
+            <Link to="/favorites" onClick={closeNavbarHandler}>
               My Favorites
               <span className={classes.badge}>
                 {favoritesCtx.totalFavorites}
