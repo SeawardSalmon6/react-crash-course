@@ -1,11 +1,21 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import classes from "./index.module.css";
+import Backdrop from "./Backdrop";
 import FavoritesContext from "../../../store/favorites-context";
 
 function MainNavigation() {
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
   const favoritesCtx = useContext(FavoritesContext);
+
+  function openMenuHandler() {
+    setMenuIsOpen((prevState) => !prevState);
+  }
+
+  function closeNavbarHandler() {
+    setMenuIsOpen(false);
+  }
 
   return (
     <header className={classes.header}>
@@ -13,7 +23,7 @@ function MainNavigation() {
         <div className={classes.logo}>React Meetups</div>
       </Link>
       <nav>
-        <ul>
+        <ul className={menuIsOpen ? classes.active : ""}>
           <li>
             <Link to="/">All Meetups</Link>
           </li>
@@ -29,7 +39,13 @@ function MainNavigation() {
             </Link>
           </li>
         </ul>
+        <div onClick={openMenuHandler} className={classes.mobileMenu}>
+          <div className={classes.line01}></div>
+          <div className={classes.line02}></div>
+          <div className={classes.line03}></div>
+        </div>
       </nav>
+      {menuIsOpen && <Backdrop onClick={closeNavbarHandler} />}
     </header>
   );
 }

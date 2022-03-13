@@ -1,7 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 
+:root {
+  --navbar-height: 5rem;
+  --navbar-primary-color: #77002e;
+}
+
 * {
   box-sizing: border-box;
+}
+
+html,
+body {
+  position: relative;
+  overflow-x: hidden;
 }
 
 body {
