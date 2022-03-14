@@ -19,7 +19,7 @@ function MainNavigation() {
 
   return (
     <header className={classes.header}>
-      <Link to="/">
+      <Link to="/" onClick={closeNavbarHandler}>
         <div className={classes.logo}>React Meetups</div>
       </Link>
       <nav>
